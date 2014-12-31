@@ -1,0 +1,16 @@
+doctype html
+meta(charset='utf-8')
+title Hello world
+meta(name='description', content='Hello world')
+meta(name='keywords', content='hello,world')
+meta(name='viewport',
+  content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no')
+//- base(href='#{base}')
+body
+  | Hello world!
+  if debug
+    script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js',
+      data-main='js/config')
+  else
+    script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js',
+      data-main='js/main')

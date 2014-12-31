@@ -1,0 +1,28 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/progre/template-typescript"
+  },
+  "private": true,
+  "scripts": {
+    "test": "gulp build-release"
+  },
+  "dependencies": {
+    "es6-shim": "*",
+    "source-map-support": "*"
+  },
+  "devDependencies": {
+    "browser-sync": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-if": "*",
+    "gulp-jade": "*",
+    "gulp-plumber": "*",
+    "gulp-requirejs": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-typescript": "*",
+    "gulp-uglify": "*",
+    "require-dir": "*",
+    "run-sequence": "*"
+  }
+}

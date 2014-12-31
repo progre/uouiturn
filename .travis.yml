@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - npm install -g gulp
+install:
+  - git submodule init && git submodule update && npm install
+script:
+  - gulp build-release
