@@ -20,6 +20,7 @@
     "gulp-plumber": "*",
     "gulp-requirejs": "*",
     "gulp-sourcemaps": "*",
+    "gulp-tslint": "*",
     "gulp-typescript": "*",
     "gulp-uglify": "*",
     "require-dir": "*",

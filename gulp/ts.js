@@ -7,6 +7,7 @@ var typescript = require('gulp-typescript');
 var requirejs = require('gulp-requirejs');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
+var tslint = require('gulp-tslint');
 
 var CLIENT_SRC_PATH = 'src/public/ts/**/*.ts';
 var CLIENT_DST_PATH = 'app/public/js/';
@@ -21,12 +22,15 @@ gulp.task('ts-server', function () { return buildTS(true, true); });
 gulp.task('ts-client', function () { return buildTS(false, true); });
 gulp.task('ts-server-release', ['ts-server-clean'], function () { return buildTS(true, false); });
 gulp.task('ts-client-release', ['ts-client-clean'], function () { return buildTS(false, false); });
-
 function buildTS(server, debug) {
     var src = server ? SERVER_SRC_PATH : CLIENT_SRC_PATH;
     var module = server ? 'commonjs' : 'amd';
     var dest = server ? SERVER_DST_PATH : debug ? CLIENT_DST_PATH : CLIENT_TMP_PATH;
     return gulp.src(src)
+        .pipe(tslint())
+        .pipe(tslint.report('prose', {
+          emitError: false
+        }))
         .pipe(gulpIf(debug, sourcemaps.init()))
         .pipe(typescript({ module: module, noImplicitAny: true }))
         .pipe(gulpIf(debug, sourcemaps.write()))
