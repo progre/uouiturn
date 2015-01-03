@@ -3,8 +3,8 @@ var gulp = require('gulp');
 var jade = require('gulp-jade');
 var notify = require('./notify');
 
-var SRC_PATH = 'src/public/**/*.jade';
-var DST_PATH = 'app/public/';
+var SRC_PATH = 'src/**/*.jade';
+var DST_PATH = 'www/';
 
 gulp.task('jade', function () { return buildJade(true); });
 gulp.task('jade-release', function () { return buildJade(false); });

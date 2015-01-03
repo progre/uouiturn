@@ -19,7 +19,7 @@ gulp.task('build-release', ['jade-release', 'stylus-release', 'ts-release']);
 gulp.task('serve', function () {
     browserSync.init(null , { 
         server: {
-            baseDir: 'app/public/'
+            baseDir: 'www/'
         }
     });
 });

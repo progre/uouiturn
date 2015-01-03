@@ -10,14 +10,14 @@ var gulpIf = require('gulp-if');
 var tslint = require('gulp-tslint');
 var notify = require('./notify');
 
-var CLIENT_SRC_PATH = 'src/public/ts/**/*.ts';
-var CLIENT_DST_PATH = 'app/public/js/';
-var CLIENT_TMP_PATH = 'tmp/public/js/';
-var SERVER_SRC_PATH = ['src/ts/', '!' + CLIENT_SRC_PATH];
-var SERVER_DST_PATH = 'app/js/';
+var CLIENT_SRC_PATH = 'src/ts/**/*.ts';
+var CLIENT_DST_PATH = 'www/js/';
+var CLIENT_TMP_PATH = 'tmp/js/';
+var SERVER_SRC_PATH = null;
+var SERVER_DST_PATH = null;
 
-gulp.task('ts', ['ts-server', 'ts-client']);
-gulp.task('ts-release', ['ts-server-release', 'ts-requirejs']);
+gulp.task('ts', ['ts-client']);
+gulp.task('ts-release', ['ts-requirejs']);
 
 gulp.task('ts-server', function () { return buildTS(true, true); });
 gulp.task('ts-client', function () { return buildTS(false, true); });

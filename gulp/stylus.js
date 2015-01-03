@@ -3,8 +3,8 @@ var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var notify = require('./notify');
 
-var SRC_PATH = 'src/public/stylus/**/*.stylus';
-var DST_PATH = 'app/public/css/';
+var SRC_PATH = 'src/stylus/**/*.stylus';
+var DST_PATH = 'www/css/';
 
 gulp.task('stylus', function () { return buildStylus(true); });
 gulp.task('stylus-release', function () { return buildStylus(false); });
