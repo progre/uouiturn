@@ -1,16 +1,16 @@
 var runSequence = require('run-sequence');
 var gulp = require('gulp');
 var jade = require('gulp-jade');
-var plumber = require('gulp-plumber');
+var notify = require('./notify');
 
 var SRC_PATH = 'src/public/**/*.jade';
 var DST_PATH = 'app/public/';
 
-gulp.task('jade', function () { return jadeTask(true); });
-gulp.task('jade-release', function () { return jadeTask(false); });
-function jadeTask(debug) {
+gulp.task('jade', function () { return buildJade(true); });
+gulp.task('jade-release', function () { return buildJade(false); });
+function buildJade(debug) {
     return gulp.src(SRC_PATH)
-        .pipe(plumber())
+        .pipe(notify.plumber())
         .pipe(jade({ data: {
             debug: debug,
              base: ''

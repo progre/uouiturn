@@ -8,6 +8,7 @@ var requirejs = require('gulp-requirejs');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var tslint = require('gulp-tslint');
+var notify = require('./notify');
 
 var CLIENT_SRC_PATH = 'src/public/ts/**/*.ts';
 var CLIENT_DST_PATH = 'app/public/js/';
@@ -28,11 +29,9 @@ function buildTS(server, debug) {
     var dest = server ? SERVER_DST_PATH : debug ? CLIENT_DST_PATH : CLIENT_TMP_PATH;
     return gulp.src(src)
         .pipe(tslint())
-        .pipe(tslint.report('prose', {
-          emitError: false
-        }))
+        .pipe(tslint.report(notify.tsLintReporter, { emitError: false }))
         .pipe(gulpIf(debug, sourcemaps.init()))
-        .pipe(typescript({ module: module, noImplicitAny: true }))
+        .pipe(typescript({ module: module, noImplicitAny: true }, undefined, notify.tsReporter))
         .pipe(gulpIf(debug, sourcemaps.write()))
         .pipe(gulp.dest(dest));
 }

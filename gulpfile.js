@@ -13,8 +13,8 @@ gulp.task('clean', function (callback) {
     del(['app', 'tmp'], callback);
 });
 
-gulp.task('build', ['jade', 'ts']);
-gulp.task('build-release', ['jade-release', 'ts-release']);
+gulp.task('build', ['jade', 'stylus', 'ts']);
+gulp.task('build-release', ['jade-release', 'stylus-release', 'ts-release']);
 
 gulp.task('serve', function () {
     browserSync.init(null , { 
@@ -28,4 +28,4 @@ gulp.task('serve-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('watch', ['jade-watch', 'ts-watch']);
+gulp.task('watch', ['jade-watch', 'stylus-watch', 'ts-watch']);

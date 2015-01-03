@@ -20,9 +20,11 @@
     "gulp-plumber": "*",
     "gulp-requirejs": "*",
     "gulp-sourcemaps": "*",
+    "gulp-stylus": "*",
     "gulp-tslint": "*",
     "gulp-typescript": "*",
     "gulp-uglify": "*",
+    "node-notifier": "*",
     "require-dir": "*",
     "run-sequence": "*"
   }
