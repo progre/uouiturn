@@ -31,7 +31,7 @@ function buildTS(server, debug) {
         .pipe(tslint())
         .pipe(tslint.report(notify.tsLintReporter, { emitError: false }))
         .pipe(gulpIf(debug, sourcemaps.init()))
-        .pipe(typescript({ module: module, noImplicitAny: true }, undefined, notify.tsReporter))
+        .pipe(typescript({ module: module, target: 'es5', noImplicitAny: true }, undefined, notify.tsReporter))
         .pipe(gulpIf(debug, sourcemaps.write()))
         .pipe(gulp.dest(dest));
 }
